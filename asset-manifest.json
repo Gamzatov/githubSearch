@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Gamzatov/githubSearch.git/static/css/main.7c84c64b.css",
-    "main.js": "/Gamzatov/githubSearch.git/static/js/main.fd39d9e7.js",
-    "index.html": "/Gamzatov/githubSearch.git/index.html",
-    "main.7c84c64b.css.map": "/Gamzatov/githubSearch.git/static/css/main.7c84c64b.css.map",
-    "main.fd39d9e7.js.map": "/Gamzatov/githubSearch.git/static/js/main.fd39d9e7.js.map"
+    "main.css": "/githubSearch/static/css/main.7c84c64b.css",
+    "main.js": "/githubSearch/static/js/main.7de380a8.js",
+    "index.html": "/githubSearch/index.html",
+    "main.7c84c64b.css.map": "/githubSearch/static/css/main.7c84c64b.css.map",
+    "main.7de380a8.js.map": "/githubSearch/static/js/main.7de380a8.js.map"
   },
   "entrypoints": [
     "static/css/main.7c84c64b.css",
-    "static/js/main.fd39d9e7.js"
+    "static/js/main.7de380a8.js"
   ]
 }
