@@ -4,6 +4,8 @@ import axios from "../../../axios";
 import User from "../../ui/User";
 import Cache from "../Cache/Cache";
 import SearchRepos from "../../SearcRepos/SearchRepos";
+import { useMemo } from "react";
+
 
 
 
@@ -12,43 +14,49 @@ const Home = () => {
   //Users fetched from the API
   const [users, setUsers] = useState([]);
   //Search query caching
-  const [cache, setCache] = useState(null);
+  const [cache, setCache] = useState([null]);
 
-
+  // fetchUsers
   const fetchUsers = async () => {
     try {
       const { data } = await axios.get(`/search/users?q=${query}`, {
       })
-      console.log('cach>>>', cache)
-      setCache(data.items)
+      // setCache(data.items)
       return data.items;
     } catch (error) {
       console.error(error);
       return null;
     }
   };
-console.log('users>>>', users)
+
+  // fetching users on changing value
   const handleQueryInput = async (e) => {
     const value = e.target.value;
     setQuery(value);
     if (query) {
       const items = await fetchUsers();
+      // const response = await response.json();
+      // console.log('resp>>>', response)
       setUsers(items);
     } else {
       console.log("Your query is empty...");
     }
   };
-  useEffect(() => {
+
+
+  const caching = useMemo(() => {
     const displayUsersOnChange = async () => {
       if (query) {
         const items = await fetchUsers();
         setUsers(items);
+        let cache = { items };
+        console.log('cache>>', cache)
       }
-
     };
     displayUsersOnChange();
   }, [query]);
-  console.log('users>>>', users)
+
+
   return (
     <div className="container">
       <div className="search-form">
@@ -61,8 +69,7 @@ console.log('users>>>', users)
         {users ? (
           users.map((user) => {
             return (
-                <User user={user} repo={users} key={user.id} />
-
+              <User user={user} cache={cache} repo={users} key={user.id} />
             );
           })
         ) : (

@@ -8,6 +8,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "../../../axios";
 import Repo from "../../ui/Repo";
 import SearchRepos from "../../SearcRepos/SearchRepos";
+import { useNavigate  } from "react-router-dom";
 const User = ({repo}) => {
   const { login } = useParams();
 
@@ -15,7 +16,8 @@ const User = ({repo}) => {
   const [userInfo, setUserInfo] = useState({});
   //User repos
   const [repos, setRepos] = useState([]);
-  console.log('user>>>', user)
+
+  const history = useNavigate();
   useEffect(() => {
     const fetchUserInformation = async () => {
       try {
@@ -34,9 +36,9 @@ const User = ({repo}) => {
   
   return (
     <div className="container">
-      <Link to="/" className="back">
+      <button onClick={() => history(-1)} className="back">
         Back
-      </Link>
+      </button>
       <div className="user-information">
 
         <div className="image">

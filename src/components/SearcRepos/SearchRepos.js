@@ -15,7 +15,6 @@ const SearchRepos = ({ repo, userInfo }) => {
             console.log("Your query is empty...");
         }
     };
-    console.log('string>>>', repo)
     useEffect(() => {
         const displayUsersOnChange = async () => {
         };

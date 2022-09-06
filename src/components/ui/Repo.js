@@ -15,11 +15,7 @@ const Repo = ({ repo, forks, stars, userInfo, }) => {
       console.log("Your query is empty...");
     }
   };
-  useEffect(() => {
-    const displayUsersOnChange = async () => {
-    };
-    displayUsersOnChange();
-  }, [query]);
+
   return (
     <div className="repo">
       <div className="repo_desc">

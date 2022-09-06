@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 const User = ({ user }) => {
   const { avatar_url, login, id } = user;
-  console.log("user>>>", user)
   return (
     <div className="user">
       <div className="user_main_info">
@@ -14,7 +13,6 @@ const User = ({ user }) => {
         <div className="user-info">
           <h3>{user.login}</h3>
           <small>{user.id}</small>
-
         </div>
       </div>
       <div className="repos">
